@@ -53,9 +53,7 @@ void changeDefault(IMMDeviceEnumerator *pEnum, EDataFlow dataFlow, const wchar_t
 		PropVariantInit(&friendlyName);
 		hr = pStore->GetValue(PKEY_Device_FriendlyName, &friendlyName);
 
-		// if no options, print the device
-		// otherwise, find the selected device and set it to be default
-		printf("Audio Device %d: %ws\n", i, friendlyName.pwszVal);
+		printf("%ws Device %d: %ws\n", dataFlow == eRender ? L"Playback" : L"Microphone", i, friendlyName.pwszVal);
 
 		if (!!wcscmp(wstrID, defaultDeviceWstrID))
 		{
@@ -81,10 +79,6 @@ void changeDefault(IMMDeviceEnumerator *pEnum, EDataFlow dataFlow, const wchar_t
 // EndPointController.exe [NewDefaultDeviceID]
 int _tmain(int argc, _TCHAR* argv[])
 {
-	// read the command line option, -1 indicates list devices.
-	int option = -1;
-	if (argc == 2) option = atoi((char*)argv[1]);
-
 	auto defaultPlaybackDeviceName = L"Speakers / Headphones (Realtek Audio)";
 	auto defaultMicrophoneDeviceName = L"Microphone (Samson C01U Pro Mic)";
 
