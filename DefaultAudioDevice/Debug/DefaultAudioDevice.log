@@ -1,0 +1,3 @@
+﻿  Source.cpp
+c:\users\jasper\source\repos\defaultaudiodevice\defaultaudiodevice\source.cpp(41): warning C4018: '<': signed/unsigned mismatch
+  DefaultAudioDevice.vcxproj -> c:\users\jasper\source\repos\DefaultAudioDevice\Debug\DefaultAudioDevice.exe
